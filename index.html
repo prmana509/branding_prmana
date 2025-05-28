@@ -11,25 +11,57 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
+    .animated-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 20s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-100px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 relative overflow-hidden">
+  <div class="animated-bg">
+    <div class="circle bg-purple-300" style="width: 200px; height: 200px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="circle bg-indigo-300" style="width: 150px; height: 150px; top: 60%; left: 80%; animation-delay: 5s;"></div>
+    <div class="circle bg-pink-300" style="width: 100px; height: 100px; top: 40%; left: 50%; animation-delay: 10s;"></div>
+  </div>
+
   <!-- Hero Section -->
-  <header class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-indigo-600 to-purple-500 text-white">
-    <h1 class="text-5xl font-bold mb-4">Halo, Saya Seorang Desainer Grafis</h1>
+  <header class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-indigo-600 to-purple-500 text-white relative z-10">
+    <h1 class="text-5xl font-bold mb-4">Halo, Saya fahrul pramana</h1>
     <p class="text-xl mb-6">Membantu merek Anda tampil menonjol dengan desain kreatif dan profesional.</p>
     <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Hubungi Saya</a>
   </header>
 
   <!-- About Section -->
-  <section class="py-16 px-4 max-w-4xl mx-auto">
+  <section class="py-16 px-4 max-w-4xl mx-auto relative z-10">
     <h2 class="text-3xl font-semibold text-center mb-6">Tentang Saya</h2>
     <p class="text-center text-lg">Saya memiliki pengalaman lebih dari 5 tahun dalam dunia desain grafis, mulai dari branding, desain media sosial, hingga UI/UX. Saya percaya bahwa desain bukan hanya tentang estetika, tapi juga tentang bagaimana menyampaikan pesan yang kuat dan tepat sasaran.</p>
   </section>
 
   <!-- Portfolio Section -->
-  <section class="py-16 bg-white px-4 max-w-6xl mx-auto">
+  <section class="py-16 bg-white px-4 max-w-6xl mx-auto relative z-10">
     <h2 class="text-3xl font-semibold text-center mb-10">Portofolio</h2>
     <div class="grid gap-6 md:grid-cols-3">
       <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
@@ -51,7 +83,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 px-4 bg-indigo-100">
+  <section id="contact" class="py-16 px-4 bg-indigo-100 relative z-10">
     <h2 class="text-3xl font-semibold text-center mb-6">Hubungi Saya</h2>
     <form class="max-w-xl mx-auto bg-white p-6 rounded shadow" onsubmit="handleSubmit(event)">
       <label class="block mb-4">
@@ -71,7 +103,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-6 bg-gray-200 text-sm">
+  <footer class="text-center py-6 bg-gray-200 text-sm relative z-10">
     &copy; 2025 Desainer Grafis | Dibuat dengan ❤️ menggunakan Tailwind CSS
   </footer>
 
